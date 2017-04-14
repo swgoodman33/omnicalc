@@ -85,13 +85,13 @@ class CalculationsController < ApplicationController
 
     @count = @numbers.count
 
-    @minimum = @numbers_min
+    @minimum = @numbers.sort.first
 
-    @maximum = "Replace this string with your answer."
+    @maximum = @numbers.sort.last
 
-    @range = "Replace this string with your answer."
+    @range = @numbers.sort.last - @numbers.sort.first
 
-    @median = "Replace this string with your answer."
+    @median = "input"
 
     @sum = "Replace this string with your answer."
 
