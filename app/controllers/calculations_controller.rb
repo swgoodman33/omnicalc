@@ -91,15 +91,17 @@ class CalculationsController < ApplicationController
 
     @range = @numbers.sort.last - @numbers.sort.first
 
-    @median = "input"
+    sorted = @numbers.sort
+    len = sorted.length
+    @median = (sorted[(len - 1) / 2] + sorted [len / 2]) / 2
 
-    @sum = "Replace this string with your answer."
+    @sum = @numbers.inject(0){|sum,x| sum + x}
 
-    @mean = "Replace this string with your answer."
+    @mean = @sum / @count
 
-    @variance = "Replace this string with your answer."
+    @variance = (@numbers.inject(0){|sum,x| sum + (x - @mean)**2}) / @count
 
-    @standard_deviation = "Replace this string with your answer."
+    @standard_deviation = @variance**(0.5)
 
     @mode = "Replace this string with your answer."
 
